@@ -2,12 +2,12 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 driver = webdriver.Chrome()
-driver.implicitly_wait(10) # Implicit wait for elements to be present
+driver.implicitly_wait(10)    # Implicit wait for elements to be present
 
 driver.get("https://rahulshettyacademy.com/seleniumPractise/#/")
 driver.find_element(By.CSS_SELECTOR, ".search-keyword").send_keys("ber")
-time.sleep(2)
-results = driver.find_elements(By.XPATH, "//div[@class='products']/div")
+time.sleep(2)    #it's necessary, if no, it will return empty list
+results = driver.find_elements(By.XPATH, "//div[@class='products']/div")    #returns a list of elements
 count = len(results)
 assert count > 0
 for result in results:
